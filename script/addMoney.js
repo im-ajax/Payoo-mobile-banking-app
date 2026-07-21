@@ -1,4 +1,5 @@
 document.getElementById('add-money-btn').addEventListener('click',function(){
+    console.log("Add btn clicked");
     const bankAccount =getValueFromInput('add-money-bank');
     if(bankAccount== "Select a Bank"){
         alert("Please select a bank!");

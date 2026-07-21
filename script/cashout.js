@@ -1,4 +1,5 @@
 document.getElementById('cashout-btn').addEventListener('click',function(){
+    // console.log("cash btn clicked")
     //1. get the agent number
     const cashoutNumber=getValueFromInput("cashout-number");
     if(cashoutNumber.length!=11){
@@ -19,12 +20,25 @@ document.getElementById('cashout-btn').addEventListener('click',function(){
     if(pin==="1234"){
         alert("Cashout successful");
         setBalance(newBalance);
+        const history=document.getElementById('history-container');
+        //2- new div create korbo
+        const newHistory=document.createElement('div');
+        //3- new div innerHTML korbo
+        newHistory.innerHTML=`
+            <div class="transaction-card p-5 bg-base-100">
+                Cashout Success from acc-no ${cashoutNumber} at ${new Date()}
+            </div>
+        `
+        history.append(newHistory);
     }else{
         alert("Invalid Pin!");
         return;
     }
 });
 
+
+
+// 
 
 // document.getElementById('cashout-btn')
 //     .addEventListener('click',function(){
