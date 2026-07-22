@@ -34,3 +34,45 @@ function showOnly(id){
     const selected=document.getElementById(id);
     selected.classList.remove('hidden');
 }
+//transaction history maker
+function makeTransaction(id){
+    //1 - history-container ke shore niye ashbo
+    const history=document.getElementById('history-container');
+    //2- new div create korbo
+    const newHistory=document.createElement('div');
+    //3- new div innerHTML korbo
+    if(id=='add-money'){
+        newHistory.innerHTML=`
+            <div class="transaction-card p-5 bg-base-100">Add money Successful at ${new Date()}
+            </div>
+        `
+    }
+    else if(id=='cashout'){
+        newHistory.innerHTML=`
+            <div class="transaction-card p-5 bg-base-100">Cash Out Succssful at ${new Date  ()}
+            </div>
+        `
+    }
+    else if(id=='send-money'){
+        newHistory.innerHTML=`
+        <div class="transaction-card p-5 bg-base-100">
+            Send Money Success from at ${new Date()}
+        </div>
+    `
+    }
+    else if(id=='coupon'){
+        newHistory.innerHTML=`
+        <div class="transaction-card p-5 bg-base-100">
+            Coupon code Success from at ${new Date()}
+        </div>
+    `
+    }
+    else if(id=='pay-bill'){
+        newHistory.innerHTML=`
+            <div class="transaction-card p-5 bg-base-100">Bill paid at ${new Date()}
+            </div>
+        `
+    }
+    //4-history-container a newDiv append korbo.
+    history.append(newHistory);
+}
